@@ -1,0 +1,150 @@
+:root {
+  /* Glass & accent colors */
+  --noteease-glass-bg-dark: rgba(30, 34, 50, 0.55);
+  --noteease-glass-bg-light: rgba(255, 255, 255, 0.55);
+  --noteease-blur: 20px;
+  --noteease-border-radius: 22px;
+  --noteease-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  --noteease-primary: #4A90E2;
+  --noteease-accent: #F5A623;
+  --noteease-secondary: #FFFFFF;
+  --noteease-dark-bg: #1A1A1A;
+  --noteease-light-bg: #F7F7F9;
+}
+
+body.dark-theme {
+  background: linear-gradient(135deg, #10131a 0%, #333a4d 100%);
+  color: #fff;
+}
+
+body.light-theme {
+  background: linear-gradient(135deg, #f7fafc 0%, #e4ecf8 100%);
+  color: #141414;
+}
+
+/* Main glassy container */
+.noteease-glass-container {
+  min-height: 70vh;
+  max-width: 520px;
+  margin: 94px auto 0 auto;
+  padding: 36px 26px 74px 26px;
+  border-radius: var(--noteease-border-radius);
+  box-shadow: var(--noteease-box-shadow);
+  backdrop-filter: blur(var(--noteease-blur));
+  -webkit-backdrop-filter: blur(var(--noteease-blur));
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: var(--noteease-glass-bg-dark);
+}
+
+.noteease-glass-container.light-theme {
+  background: var(--noteease-glass-bg-light);
+  color: #111;
+  box-shadow: 0 8px 24px rgba(50, 67, 95, 0.10);
+}
+
+.noteease-glass-container.dark-theme {
+  background: var(--noteease-glass-bg-dark);
+  color: #fff;
+}
+
+/* Header/title styling */
+.noteease-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  background: linear-gradient(120deg, var(--noteease-primary), var(--noteease-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.noteease-subtitle {
+  color: #aaa;
+  font-size: 1.07rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-top: 0;
+  text-align: center;
+  opacity: .84;
+}
+
+/* Content area (placeholder for notes/content) */
+.noteease-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noteease-placeholder {
+  color: var(--noteease-primary);
+  font-size: 1.20rem;
+  font-style: italic;
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Floating Action Button style */
+.noteease-fab {
+  position: fixed;
+  right: 34px;
+  bottom: 34px;
+  width: 61px;
+  height: 61px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, var(--noteease-primary), var(--noteease-accent));
+  color: #fff;
+  font-size: 2.5rem;
+  border: none;
+  box-shadow: 0 8px 18px rgba(31,38,135,0.18);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  z-index: 999;
+  transition: transform 0.13s, box-shadow 0.18s;
+}
+.noteease-fab:hover, .noteease-fab:focus {
+  transform: scale(1.08);
+  box-shadow: 0 16px 28px 0 rgba(31,38,135,0.24), 0 2px 4px #F5A62322;
+  background: linear-gradient(120deg, var(--noteease-primary), #f7ac23);
+}
+
+.noteease-fab span {
+  pointer-events: none;
+  user-select: none;
+}
+
+.noteease-theme-toggle-helper {
+  font-size: 0.93rem;
+  color: #bbb;
+  opacity: 0.85;
+  margin-top: 22px;
+  text-align: center;
+}
+
+.light-theme .noteease-theme-toggle-helper { color: #5a6396; }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .noteease-glass-container {
+    max-width: 98vw;
+    margin: 54px auto 0 auto;
+    padding: 16px 3vw 70px 3vw;
+  }
+  .noteease-fab {
+    right: 16px;
+    bottom: 18px;
+    width: 51px;
+    height: 51px;
+    font-size: 1.9rem;
+  }
+}
